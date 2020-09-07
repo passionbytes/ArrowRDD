@@ -12,7 +12,7 @@ import org.apache.spark.{Partition, Partitioner, SparkContext, TaskContext}
 import scala.reflect.ClassTag
 import org.apache.spark.sql.util.ArrowUtils
 //import org.apache.arrow.vector.ipc.ArrowWriter
-
+/* This code is forked from Brayn Cutler's spark arrow flight example */
 
 class VectorSchemaRootIterator(
     batchIter: Iterator[Iterator[InternalRow]],
