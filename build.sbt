@@ -4,20 +4,22 @@ version := "1.0"
 
 organization := "com.passion"
 
-scalaVersion := "2.12.6"
-javacOptions ++= Seq("-source", "1.8")
+scalaVersion := "2.12.4"
+javacOptions ++= Seq("-source", "11")
 
 compileOrder := CompileOrder.JavaThenScala
 mainClass := Some("com.passion.Sample")
 
 libraryDependencies ++= Seq(
-  "org.apache.spark" %% "spark-core" % "3.0.0"  ,
-  "org.apache.spark" %% "spark-sql" % "3.0.0" ,
+  "org.apache.spark" %% "spark-core" % "3.2.1"  ,
+  "org.apache.spark" %% "spark-sql" % "3.2.1" ,
   "org.apache.hadoop" % "hadoop-client" % "2.7.3",
   "org.apache.hadoop" % "hadoop-common" % "2.7.3",
-  "org.apache.arrow" % "arrow-vector" % "0.17.1",
-  "org.apache.arrow" % "arrow-memory" % "0.17.1"
-
+  "org.apache.arrow" % "arrow-vector" % "12.0.0",
+  "org.apache.arrow" % "arrow-memory" % "12.0.0",
+  "org.apache.arrow" % "arrow-format" % "12.0.0",
+"org.apache.arrow" % "flight-grpc" % "12.0.0",
+ ("org.apache.arrow" % "flight-core" % "2.0.0").exclude("io.netty", "netty-transport-native-unix-common").exclude("io.netty", "netty-transport-native-kqueue")
 )
 
 scalacOptions in Test ++= Seq("-Yrangepos")
